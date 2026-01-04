@@ -51,7 +51,7 @@ const CardRoot: React.FC<CardProps> & {
 const CardHeader: React.FC<CardHeaderProps> = ({ children, className = '' }) => {
   return (
     <div
-      className={`border-b border-gray-200 px-6 py-4 dark:border-gray-800 ${className}`}
+      className={`border-b border-gray-200 px-4 md:px-6 py-3 md:py-4 dark:border-gray-800 ${className}`}
     >
       {children}
     </div>
@@ -59,13 +59,13 @@ const CardHeader: React.FC<CardHeaderProps> = ({ children, className = '' }) => 
 }
 
 const CardBody: React.FC<CardBodyProps> = ({ children, className = '' }) => {
-  return <div className={`px-6 py-4 ${className}`}>{children}</div>
+  return <div className={`px-4 md:px-6 py-3 md:py-4 ${className}`}>{children}</div>
 }
 
 const CardFooter: React.FC<CardFooterProps> = ({ children, className = '' }) => {
   return (
     <div
-      className={`border-t border-gray-200 bg-gray-50 px-6 py-4 dark:border-gray-800 dark:bg-gray-800 ${className}`}
+      className={`border-t border-gray-200 bg-gray-50 px-4 md:px-6 py-3 md:py-4 dark:border-gray-800 dark:bg-gray-800 ${className}`}
     >
       {children}
     </div>

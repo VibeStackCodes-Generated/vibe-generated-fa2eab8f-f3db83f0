@@ -4,7 +4,7 @@ import App from '@/App'
 
 // Lazy load the component showcase
 const ComponentShowcase = lazy(() =>
-  import('@/pages/ComponentShowcase').then((m) => ({ default: m.ComponentShowcase }))
+  import('@/pages/ComponentShowcase').then(m => ({ default: m.ComponentShowcase }))
 )
 
 /**

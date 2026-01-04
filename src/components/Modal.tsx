@@ -1,5 +1,4 @@
 import React, { ReactNode, useCallback, useEffect } from 'react'
-import { Button } from './Button'
 
 interface ModalProps {
   isOpen: boolean
@@ -88,7 +87,9 @@ export const Modal: React.FC<ModalProps> & {
         {/* Header */}
         {(title || closeButton) && (
           <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4 dark:border-gray-800">
-            {title && <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{title}</h2>}
+            {title && (
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{title}</h2>
+            )}
             {!title && <div />}
             {closeButton && (
               <button
@@ -96,12 +97,7 @@ export const Modal: React.FC<ModalProps> & {
                 className="inline-flex items-center justify-center rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
                 aria-label="Close modal"
               >
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -118,7 +114,11 @@ export const Modal: React.FC<ModalProps> & {
         <div className="px-6 py-4">{children}</div>
 
         {/* Footer */}
-        {footer && <div className="border-t border-gray-200 bg-gray-50 px-6 py-4 dark:border-gray-800 dark:bg-gray-800">{footer}</div>}
+        {footer && (
+          <div className="border-t border-gray-200 bg-gray-50 px-6 py-4 dark:border-gray-800 dark:bg-gray-800">
+            {footer}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -128,11 +128,7 @@ const ModalFooter: React.FC<{ children: ReactNode; className?: string }> = ({
   children,
   className = '',
 }) => {
-  return (
-    <div className={`flex justify-end gap-3 ${className}`}>
-      {children}
-    </div>
-  )
+  return <div className={`flex justify-end gap-3 ${className}`}>{children}</div>
 }
 
 Modal.Footer = ModalFooter

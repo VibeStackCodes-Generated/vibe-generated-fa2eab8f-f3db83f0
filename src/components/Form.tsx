@@ -15,16 +15,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
-    {
-      label,
-      error,
-      helperText,
-      fullWidth = false,
-      icon,
-      className = '',
-      type = 'text',
-      ...props
-    },
+    { label, error, helperText, fullWidth = false, icon, className = '', type = 'text', ...props },
     ref
   ) => {
     const containerClass = fullWidth ? 'w-full' : ''
@@ -33,14 +24,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={containerClass}>
         {label && (
-          <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label className="mb-2 block text-xs md:text-sm font-medium text-gray-700 dark:text-gray-300">
             {label}
             {props.required && <span className="ml-1 text-red-600">*</span>}
           </label>
         )}
         <div className="relative">
           {icon && (
-            <div className="pointer-events-none absolute left-3 top-1/2 flex -translate-y-1/2 items-center text-gray-500">
+            <div className="pointer-events-none absolute left-3 md:left-4 top-1/2 flex -translate-y-1/2 items-center text-gray-500">
               {icon}
             </div>
           )}
@@ -51,13 +42,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               error
                 ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
                 : 'border-gray-300 focus:border-[#5200ff] focus:ring-[#5200ff] dark:border-gray-600'
-            } bg-white px-4 py-2 text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 ${inputClass} ${className}`}
+            } bg-white px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 touch-target ${inputClass} ${className}`}
             {...props}
           />
         </div>
-        {error && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{error}</p>}
+        {error && <p className="mt-1 text-xs md:text-sm text-red-600 dark:text-red-400">{error}</p>}
         {helperText && !error && (
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
+          <p className="mt-1 text-xs md:text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
         )}
       </div>
     )
@@ -79,23 +70,13 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 }
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  (
-    {
-      label,
-      error,
-      helperText,
-      fullWidth = true,
-      className = '',
-      ...props
-    },
-    ref
-  ) => {
+  ({ label, error, helperText, fullWidth = true, className = '', ...props }, ref) => {
     const containerClass = fullWidth ? 'w-full' : ''
 
     return (
       <div className={containerClass}>
         {label && (
-          <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label className="mb-2 block text-xs md:text-sm font-medium text-gray-700 dark:text-gray-300">
             {label}
             {props.required && <span className="ml-1 text-red-600">*</span>}
           </label>
@@ -106,12 +87,12 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             error
               ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
               : 'border-gray-300 focus:border-[#5200ff] focus:ring-[#5200ff] dark:border-gray-600'
-          } bg-white px-4 py-2 text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 ${className}`}
+          } bg-white px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 ${className}`}
           {...props}
         />
-        {error && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{error}</p>}
+        {error && <p className="mt-1 text-xs md:text-sm text-red-600 dark:text-red-400">{error}</p>}
         {helperText && !error && (
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
+          <p className="mt-1 text-xs md:text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
         )}
       </div>
     )
@@ -141,16 +122,7 @@ interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (
-    {
-      label,
-      error,
-      helperText,
-      fullWidth = false,
-      options,
-      placeholder,
-      className = '',
-      ...props
-    },
+    { label, error, helperText, fullWidth = false, options, placeholder, className = '', ...props },
     ref
   ) => {
     const containerClass = fullWidth ? 'w-full' : ''
@@ -158,7 +130,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className={containerClass}>
         {label && (
-          <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label className="mb-2 block text-xs md:text-sm font-medium text-gray-700 dark:text-gray-300">
             {label}
             {props.required && <span className="ml-1 text-red-600">*</span>}
           </label>
@@ -169,7 +141,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             error
               ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
               : 'border-gray-300 focus:border-[#5200ff] focus:ring-[#5200ff] dark:border-gray-600'
-          } bg-white px-4 py-2 text-gray-900 transition-colors focus:outline-none focus:ring-2 dark:bg-gray-800 dark:text-white ${className}`}
+          } bg-white px-3 md:px-4 py-2 md:py-2.5 text-sm md:text-base text-gray-900 transition-colors focus:outline-none focus:ring-2 dark:bg-gray-800 dark:text-white touch-target ${className}`}
           {...props}
         >
           {placeholder && (
@@ -177,15 +149,15 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               {placeholder}
             </option>
           )}
-          {options.map((option) => (
+          {options.map(option => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
           ))}
         </select>
-        {error && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{error}</p>}
+        {error && <p className="mt-1 text-xs md:text-sm text-red-600 dark:text-red-400">{error}</p>}
         {helperText && !error && (
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
+          <p className="mt-1 text-xs md:text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
         )}
       </div>
     )
@@ -208,21 +180,21 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, helperText, className = '', ...props }, ref) => {
     return (
       <div className="flex flex-col">
-        <label className="flex items-center">
+        <label className="flex items-center cursor-pointer group">
           <input
             ref={ref}
             type="checkbox"
-            className={`h-4 w-4 rounded border-gray-300 text-[#5200ff] transition-colors focus:ring-2 focus:ring-[#5200ff] dark:border-gray-600 dark:bg-gray-800 ${className}`}
+            className={`h-4 w-4 md:h-5 md:w-5 rounded border-gray-300 text-[#5200ff] transition-colors focus:ring-2 focus:ring-[#5200ff] dark:border-gray-600 dark:bg-gray-800 group-hover:ring-2 group-hover:ring-[#5200ff] group-hover:ring-offset-1 ${className}`}
             {...props}
           />
           {label && (
-            <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="ml-2 md:ml-3 text-xs md:text-sm font-medium text-gray-700 dark:text-gray-300">
               {label}
             </span>
           )}
         </label>
         {helperText && (
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
+          <p className="mt-1 text-xs md:text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
         )}
       </div>
     )
@@ -245,21 +217,21 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   ({ label, helperText, className = '', ...props }, ref) => {
     return (
       <div className="flex flex-col">
-        <label className="flex items-center">
+        <label className="flex items-center cursor-pointer group">
           <input
             ref={ref}
             type="radio"
-            className={`h-4 w-4 border-gray-300 text-[#5200ff] transition-colors focus:ring-2 focus:ring-[#5200ff] dark:border-gray-600 dark:bg-gray-800 ${className}`}
+            className={`h-4 w-4 md:h-5 md:w-5 border-gray-300 text-[#5200ff] transition-colors focus:ring-2 focus:ring-[#5200ff] dark:border-gray-600 dark:bg-gray-800 group-hover:ring-2 group-hover:ring-[#5200ff] group-hover:ring-offset-1 ${className}`}
             {...props}
           />
           {label && (
-            <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="ml-2 md:ml-3 text-xs md:text-sm font-medium text-gray-700 dark:text-gray-300">
               {label}
             </span>
           )}
         </label>
         {helperText && (
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
+          <p className="mt-1 text-xs md:text-sm text-gray-500 dark:text-gray-400">{helperText}</p>
         )}
       </div>
     )
@@ -279,5 +251,5 @@ interface FormGroupProps {
 }
 
 export const FormGroup: React.FC<FormGroupProps> = ({ children, className = '' }) => {
-  return <div className={`space-y-4 ${className}`}>{children}</div>
+  return <div className={`space-y-3 md:space-y-4 ${className}`}>{children}</div>
 }
