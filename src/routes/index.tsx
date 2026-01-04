@@ -2,9 +2,13 @@ import { createBrowserRouter } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import App from '@/App'
 
-// Lazy load the component showcase
+// Lazy load pages
 const ComponentShowcase = lazy(() =>
   import('@/pages/ComponentShowcase').then(m => ({ default: m.ComponentShowcase }))
+)
+
+const StateManagementDemo = lazy(() =>
+  import('@/pages/StateManagementDemo').then(m => ({ default: m.StateManagementDemo }))
 )
 
 /**
@@ -79,6 +83,20 @@ export const router = createBrowserRouter(
               }
             >
               <ComponentShowcase />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'state-management',
+          element: (
+            <Suspense
+              fallback={
+                <div className="flex min-h-screen items-center justify-center">
+                  <p className="text-muted-foreground">Loading...</p>
+                </div>
+              }
+            >
+              <StateManagementDemo />
             </Suspense>
           ),
         },

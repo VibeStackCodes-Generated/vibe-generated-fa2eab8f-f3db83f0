@@ -62,6 +62,14 @@ export function ComponentShowcase() {
           <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400">
             Reusable components for building consistent interfaces
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/state-management"
+              className="inline-flex items-center px-4 py-2 rounded-lg bg-[#5200ff] text-white font-medium hover:bg-[#4000dd] transition-colors"
+            >
+              View State Management Demo
+            </a>
+          </div>
         </div>
 
         {/* Buttons Section */}
