@@ -1,0 +1,13 @@
+{
+  "projectId": "fa2eab8f-dae7-4c67-b6ff-d0fa84a82d24",
+  "webhookUrl": "https://true-geckos-wear.loca.lt/api/claude-code/progress",
+  "hooks": {
+    "enabled": true,
+    "events": [
+      "SessionStart",
+      "SessionEnd",
+      "PreToolUse",
+      "PostToolUse"
+    ]
+  }
+}

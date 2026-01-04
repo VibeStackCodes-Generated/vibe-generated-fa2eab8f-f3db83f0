@@ -1,5 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
+import { Suspense, lazy } from 'react'
 import App from '@/App'
+
+// Lazy load the component showcase
+const ComponentShowcase = lazy(() =>
+  import('@/pages/ComponentShowcase').then((m) => ({ default: m.ComponentShowcase }))
+)
 
 /**
  * Get basename dynamically from window location or environment
@@ -51,9 +57,29 @@ export const router = createBrowserRouter(
         {
           index: true,
           element: (
-            <div className="flex min-h-screen items-center justify-center">
-              <p className="text-muted-foreground">Start building your app</p>
-            </div>
+            <Suspense
+              fallback={
+                <div className="flex min-h-screen items-center justify-center">
+                  <p className="text-muted-foreground">Loading...</p>
+                </div>
+              }
+            >
+              <ComponentShowcase />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'components',
+          element: (
+            <Suspense
+              fallback={
+                <div className="flex min-h-screen items-center justify-center">
+                  <p className="text-muted-foreground">Loading...</p>
+                </div>
+              }
+            >
+              <ComponentShowcase />
+            </Suspense>
           ),
         },
       ],
